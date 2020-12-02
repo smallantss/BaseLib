@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="dialog_full_screen" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+</resources>
