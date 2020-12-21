@@ -26,17 +26,10 @@ abstract class BaseRootActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         EditTextHelper(this)
         NetReceiver.instance.register(this, this)
-//        hideNavigation()
-//        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         beforeSetContentView()
         if (useEventBus()) {
             EventBus.getDefault().register(this)
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        hideNavigation()
     }
 
     open fun beforeSetContentView() {
@@ -45,17 +38,10 @@ abstract class BaseRootActivity : AppCompatActivity(),
 
     abstract fun initView()
 
-    //隐藏虚拟导航栏
-    private fun hideNavigation() {
-        window.decorView.hideNavigation()
-    }
-
     open fun initData(savedInstanceState: Bundle?) {
 
     }
 
-    override fun onBackPressed() {
-    }
 
     /**
      * 是否要使用EventBus

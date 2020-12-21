@@ -5,8 +5,6 @@ import android.content.SharedPreferences
 import android.os.Parcelable
 import com.google.gson.Gson
 import com.tencent.mmkv.MMKV
-import com.xwy.baselib.base.BaseViewModel
-import com.xwy.baselib.ext.loge
 import java.lang.reflect.ParameterizedType
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
@@ -45,9 +43,7 @@ class SpDelegate<T>(private val name: String, private val default: T) : ReadWrit
             is Long -> getLong(name, default)
             is Boolean -> getBoolean(name, default)
             is String -> {
-                val r = getString(name, default)
-                loge(r.toString())
-                r
+                getString(name, default)
             }
             else -> {
                 val type = javaClass.genericSuperclass
