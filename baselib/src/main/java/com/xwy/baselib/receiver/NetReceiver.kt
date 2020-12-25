@@ -69,7 +69,11 @@ class NetReceiver private constructor() : BroadcastReceiver() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             val connManager =
                 activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            if (callback == null) {
+                return
+            }
             connManager.unregisterNetworkCallback(callback!!)
+            callback = null
         } else {
             activity.unregisterReceiver(receiver)
         }

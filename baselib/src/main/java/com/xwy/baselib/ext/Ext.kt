@@ -163,12 +163,14 @@ private var lastTime = 0L
 
 fun doubleClick(confirm: () -> Unit, cancel: () -> Unit) {
     val curTime = System.currentTimeMillis()
-    if (curTime - lastTime > 2000) {
+    lastTime = if (curTime - lastTime > 2000) {
         cancel()
+        curTime
     } else {
         confirm()
+        0
     }
-    lastTime = curTime
+
 }
 
 /**

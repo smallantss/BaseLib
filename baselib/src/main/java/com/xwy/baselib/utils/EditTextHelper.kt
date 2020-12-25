@@ -36,7 +36,7 @@ class EditTextHelper(private val owner: AppCompatActivity) : LifecycleObserver {
     init {
         owner.lifecycle.addObserver(this)
         val root = (owner.window.decorView as FrameLayout)
-        addEt(root)
+//        addEt(root)
         etList = mEtList
     }
 

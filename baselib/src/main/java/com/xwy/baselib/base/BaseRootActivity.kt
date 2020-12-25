@@ -8,6 +8,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.xwy.baselib.bean.BaseConfig
 import com.xwy.baselib.ext.hideNavigation
+import com.xwy.baselib.ext.logd
 import com.xwy.baselib.ext.loge
 import com.xwy.baselib.ext.openWifi
 import com.xwy.baselib.receiver.NetReceiver
@@ -98,9 +99,9 @@ abstract class BaseRootActivity : AppCompatActivity(),
 
     override fun onNetChanged(hasNet: Boolean) {
         if (hasNet) {
-            loge("网络已连接")
+            logd("网络已连接")
         } else {
-            loge("网络已断开")
+            logd("网络已断开")
             openWifi(this)
         }
     }
